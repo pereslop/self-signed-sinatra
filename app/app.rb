@@ -10,13 +10,15 @@ class MyWay < Sinatra::Base
   register Sinatra::Namespace
   namespace '/api' do
     get '/foo' do
-      logger.info "api/foo parameters: #{params}"
-      params.inspect
+      logger.info "WEBHOOK parameters: #{params}"
+      params.merge({it_works: true}).inspect
     end
 
-    post '/bar' do
-      logger.info "api/bar parameters: #{params}"
-      params.inspect
+    post '/webhooks' do
+      logger.info "WEBHOOK parameters: #{params}"
+      params.merge({it_works: true}).inspect
     end
   end
 end
+
+
