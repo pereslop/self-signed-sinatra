@@ -1,4 +1,4 @@
-# Sinatra + Nginx + Docker compose
+# Sinatra + Nginx + Docker compose + self-signed cetrificate
 
 ## What is this
 
@@ -26,7 +26,11 @@ docker cp  <nginx container id>:/etc/ssl/certs/my-site.com.crt /Users/<your_user
 ```
 then grag and drop it to your Keychain Access
 
-and visit [https://my-site.com:444/api/webhooks](https://my-site.com:444/api/webhooks)
+and visit [https://my-site.com:444/api/webhooks](https://my-site.com:444/api/webhooks), or
+```shell
+curl https://my-site.com:444/api/webhooks --cacert  my-site.com.crt
+{"it_works"=>true}%
+```
 
 if you want to use your own hostname you need to generate certificate for its hostname
 ```shell
