@@ -40,7 +40,7 @@ there you need to to type certificate host, and other
 after losing several seconds of your life, you can clean up using
 
 ## Ruby usage
-```shell
+```ruby
     irb
     require 'net/http'
     certificate = File.read('my-site.com.crt') 
