@@ -12,7 +12,6 @@ This might be a useful project if:
 - you've never linked containers together using docker compose
 - you need a super simple example of sinatra app that's wired up correctly to rackup.
 - you need to test connection to applications with self-signed cetrificates
-Update: I wrote a [blog post](https://booyaa.wtf/2018/sketchpad-project-sinatra-nginx-docker-compose/) explaining the background behind this project.
 
 ## Usage
 
