@@ -1,15 +1,24 @@
-require 'sinatra'
-
-configure do
-    set :bind, '0.0.0.0'
-end
+require 'sinatra/base'
+require 'sinatra/namespace'
 
 class MyWay < Sinatra::Base
-    get '/foo' do
-    'foo'
+  configure do
+    set :bind, '0.0.0.0'
+    enable :logging
+  end
+
+  register Sinatra::Namespace
+  namespace '/api' do
+    get '/webhooks' do
+      logger.info "WEBHOOK parameters: #{params}"
+      params.merge({it_works: true}).inspect
     end
 
-    post '/bar' do
-    params['foo']
+    post '/webhooks' do
+      logger.info "WEBHOOK parameters: #{params}"
+      params.merge({it_works: true}).inspect
     end
+  end
 end
+
+
