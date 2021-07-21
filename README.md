@@ -39,7 +39,28 @@ openssl req -newkey rsa:2048 -nodes -keyout proxy/my-site.com.key -x509 -days 36
 there you need to to type certificate host, and other 
 after losing several seconds of your life, you can clean up using
 
-
+## Ruby usage
+```shell
+    irb
+    require 'net/http'
+    certificate = File.read('my-site.com.crt') 
+    file = File.new('sertificate.crt', 'w')
+    file.puts(certificate)
+    file.close
+    uri = URI.parse('https://my-site.com:444/api/webhooks')
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+    http.ca_file = file.path
+    http.verify_mode = OpenSSL::SSL::VERIFY_PEER
+    request = Net::HTTP::Get.new(uri.request_uri)
+    response = http.request(request)
+    puts response.body
+    
+    **irb(main):055:0>     puts response.body
+    {"it_works"=>true}
+**
+=> 
+```
 ## Routes and expected outcomes
 
 | Method | Sinatra          | Nginx         | Params (In) | Params (Out) |
