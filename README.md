@@ -1,5 +1,5 @@
 # Sinatra + Nginx + Docker compose + self-signed cetrificate
-
+## inspired by https://github.com/booyaa/singinx and https://codingwithmanny.medium.com/configure-self-signed-ssl-for-nginx-docker-from-a-scratch-7c2bcd5478c6
 ## What is this
 
 Small Sintatra application with nginx proxy
