@@ -17,8 +17,8 @@ services:
       - "444:444" # Hey docker start listening on 443, and redirect to 443
     depends_on:
       - app
-# networks:
-#   default:
-#     name: network_name
+networks:
+  default:
+    name: janus-rails_default
 # you can connect it to other docker network and use it with 
 
